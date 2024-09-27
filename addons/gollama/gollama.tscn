@@ -55,6 +55,7 @@ script = ExtResource("2_irdcm")
 server_address = null
 server_port = null
 server_url = null
+server_model = null
 include_tscn = null
 height = null
 
@@ -77,6 +78,17 @@ text = "Include .tscn in context?"
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigIncludeSenes"]
 layout_mode = 2
 button_pressed = true
+
+[node name="ConfigModel" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigModel"]
+layout_mode = 2
+text = "Model"
+
+[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigModel"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
 
 [node name="ConfigAddress" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
 layout_mode = 2

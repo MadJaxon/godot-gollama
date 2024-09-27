@@ -4,6 +4,7 @@ extends Button
 @export var server_address: String = "127.0.0.1"
 @export var server_port: int = 11434
 @export var server_url: String = "/api/generate"
+@export var server_model: String = "llama3.2"
 @export var include_tscn: bool = true
 
 @export var height: int = 500 :
@@ -19,6 +20,7 @@ extends Button
 @onready var input_address: TextEdit = $"../../ConfigContainer/ConfigAddress/Input"
 @onready var input_port: TextEdit = $"../../ConfigContainer/ConfigPort/Input"
 @onready var input_url: TextEdit = $"../../ConfigContainer/ConfigUrl/Input"
+@onready var input_model: TextEdit = $"../../ConfigContainer/ConfigModel/Input"
 
 
 var http_thread: Thread = null
@@ -33,6 +35,7 @@ func _ready() -> void:
 	self.input_address.text = self.server_address
 	self.input_port.text = str(self.server_port)
 	self.input_url.text = self.server_url
+	self.input_model.text = self.server_model
 
 
 func _exit_tree():
@@ -116,7 +119,7 @@ func send_to_ollama():
 		OS.delay_msec(100)
 
 	var body = JSON.stringify({
-		"model": "llama3.2",
+		"model": self.server_model,
 		"stream": false,
 		"prompt": self.prompt
 	})
@@ -143,8 +146,11 @@ func send_to_ollama():
 			else:
 				rb = rb + chunk # Append to read buffer.
 
-		var response_json = JSON.parse_string(rb.get_string_from_ascii())
-		var response: String = response_json.response
-		response.replace("\\n", "\n")
-		call_deferred("add_message", response)
+		var response_json: Dictionary = JSON.parse_string(rb.get_string_from_ascii())
+		if response_json.has('error'):
+			print(response_json.error)
+		else:
+			var response: String = response_json.response
+			response.replace("\\n", "\n")
+			call_deferred("add_message", response)
 	call_deferred("toggleButton")

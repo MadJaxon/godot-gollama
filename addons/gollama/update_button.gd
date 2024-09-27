@@ -12,6 +12,6 @@ func _on_pressed():
 	$"../../../HBoxContainer/Button".server_address = $"../../ConfigAddress/Input".text
 	$"../../../HBoxContainer/Button".server_port = $"../../ConfigPort/Input".text.to_int()
 	$"../../../HBoxContainer/Button".server_url = $"../../ConfigUrl/Input".text
-	var checkbox: CheckBox = $"../../ConfigIncludeSenes/CheckBox"
+	$"../../../HBoxContainer/Button".server_model = $"../../ConfigModel/Input".text
 	$"../../../HBoxContainer/Button".include_tscn = $"../../ConfigIncludeSenes/CheckBox".button_pressed
 	$"../..".visible = false
