@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm41v3ybxtf4y"]
+
+[ext_resource type="Script" path="res://addons/gollama/config_button.gd" id="2_d1fc0"]
+[ext_resource type="Script" path="res://addons/gollama/button.gd" id="2_irdcm"]
+[ext_resource type="Script" path="res://addons/gollama/update_button.gd" id="3_w8coa"]
+[ext_resource type="Script" path="res://addons/gollama/clear_button.gd" id="4_3qrxy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysb5e"]
+bg_color = Color(0.179502, 0.221889, 0.288701, 1)
+
+[node name="Gollama" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Gollama (v0.1)"
+fit_content = true
+
+[node name="Chat" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ysb5e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PromptInput" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Go!"
+script = ExtResource("2_irdcm")
+server_address = null
+server_port = null
+server_url = null
+include_tscn = null
+height = null
+
+[node name="ConfigButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "..."
+script = ExtResource("2_d1fc0")
+
+[node name="ConfigContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ConfigIncludeSenes" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigIncludeSenes"]
+layout_mode = 2
+text = "Include .tscn in context?"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigIncludeSenes"]
+layout_mode = 2
+button_pressed = true
+
+[node name="ConfigAddress" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigAddress"]
+layout_mode = 2
+text = "Server-Address"
+
+[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigAddress"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+
+[node name="ConfigPort" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigPort"]
+layout_mode = 2
+text = "Server-Port"
+
+[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigPort"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+
+[node name="ConfigUrl" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigUrl"]
+layout_mode = 2
+text = "Path"
+
+[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigUrl"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+
+[node name="ConfigUpdate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
+layout_mode = 2
+
+[node name="UpdateButton" type="Button" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigUpdate"]
+layout_mode = 2
+text = "Update"
+script = ExtResource("3_w8coa")
+
+[node name="ClearButton" type="Button" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigUpdate"]
+layout_mode = 2
+text = "Clear History"
+script = ExtResource("4_3qrxy")
