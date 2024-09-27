@@ -8,6 +8,6 @@ Very bare-bones, but it works \o/
 
 
 # installation
-Under AssetLib, import the gollama.zip and afterwards enable the plugin in the project-settings:
+Under AssetLib, import the ![gollama.zip](https://github.com/MadJaxon/godot-gollama/blob/master/gollama.zip) and afterwards enable the plugin in the project-settings:
 
 ![enable_plugin](https://github.com/MadJaxon/godot-gollama/blob/master/enable_plugin.png?raw=true)
