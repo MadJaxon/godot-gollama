@@ -21,6 +21,7 @@ extends Button
 @onready var input_port: TextEdit = $"../../ConfigContainer/ConfigPort/Input"
 @onready var input_url: TextEdit = $"../../ConfigContainer/ConfigUrl/Input"
 @onready var input_model: TextEdit = $"../../ConfigContainer/ConfigModel/Input"
+@onready var check_box_tscn: CheckBox = $"../../ConfigContainer/ConfigIncludeSenes/CheckBox"
 
 
 var http_thread: Thread = null
@@ -32,10 +33,31 @@ var messages: Array[String] = []
 func _ready() -> void:
 	pressed.connect(_on_button_pressed)
 	self.chat.set_custom_minimum_size(Vector2(0, self.height))
+	var config = ConfigFile.new()
+	config.load("res://addons/gollama/plugin.cfg")
+	
+	for section in config.get_sections():
+		if section.begins_with("config"):
+			var tscn = config.get_value(section, "include_tscn")
+			if tscn != null:
+				self.include_tscn = tscn
+			var model = config.get_value(section, "server_model")
+			if model != null:
+				self.server_model = model
+			var address = config.get_value(section, "server_address")
+			if address != null:
+				self.server_address = address
+			var port = config.get_value(section, "server_port")
+			if port != null:
+				self.server_port = port
+			var url = config.get_value(section, "server_url")
+			if url != null:
+				self.server_url = url
 	self.input_address.text = self.server_address
 	self.input_port.text = str(self.server_port)
 	self.input_url.text = self.server_url
 	self.input_model.text = self.server_model
+	self.check_box_tscn.button_pressed = self.include_tscn
 
 
 func _exit_tree():
