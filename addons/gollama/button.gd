@@ -17,10 +17,10 @@ extends Button
 @onready var chat: RichTextLabel = $"../../Chat"
 @onready var input_prompt: TextEdit = $"../PromptInput"
 
-@onready var input_address: TextEdit = $"../../ConfigContainer/ConfigAddress/Input"
-@onready var input_port: TextEdit = $"../../ConfigContainer/ConfigPort/Input"
-@onready var input_url: TextEdit = $"../../ConfigContainer/ConfigUrl/Input"
-@onready var input_model: TextEdit = $"../../ConfigContainer/ConfigModel/Input"
+@onready var input_address: LineEdit = $"../../ConfigContainer/ConfigAddress/Input"
+@onready var input_port: LineEdit = $"../../ConfigContainer/ConfigPort/Input"
+@onready var input_url: LineEdit = $"../../ConfigContainer/ConfigUrl/Input"
+@onready var input_model: LineEdit = $"../../ConfigContainer/ConfigModel/Input"
 @onready var check_box_tscn: CheckBox = $"../../ConfigContainer/ConfigIncludeSenes/CheckBox"
 
 

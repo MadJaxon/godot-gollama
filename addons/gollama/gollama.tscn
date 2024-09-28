@@ -33,7 +33,7 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Gollama (v0.1)"
+text = "Gollama (v0.1.1)"
 fit_content = true
 
 [node name="Chat" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
@@ -86,8 +86,8 @@ layout_mode = 2
 layout_mode = 2
 text = "Model"
 
-[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigModel"]
-custom_minimum_size = Vector2(190, 0)
+[node name="Input" type="LineEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigModel"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="ConfigAddress" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
@@ -97,8 +97,8 @@ layout_mode = 2
 layout_mode = 2
 text = "Server-Address"
 
-[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigAddress"]
-custom_minimum_size = Vector2(190, 0)
+[node name="Input" type="LineEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigAddress"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="ConfigPort" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
@@ -108,8 +108,8 @@ layout_mode = 2
 layout_mode = 2
 text = "Server-Port"
 
-[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigPort"]
-custom_minimum_size = Vector2(190, 0)
+[node name="Input" type="LineEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigPort"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="ConfigUrl" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
@@ -119,8 +119,8 @@ layout_mode = 2
 layout_mode = 2
 text = "Path"
 
-[node name="Input" type="TextEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigUrl"]
-custom_minimum_size = Vector2(190, 0)
+[node name="Input" type="LineEdit" parent="MarginContainer/VBoxContainer/ConfigContainer/ConfigUrl"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="ConfigUpdate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ConfigContainer"]
